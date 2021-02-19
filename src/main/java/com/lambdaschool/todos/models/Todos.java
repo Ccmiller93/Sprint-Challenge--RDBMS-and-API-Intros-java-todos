@@ -7,12 +7,14 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "todos")
-public class Todo extends Auditable
+public class Todos extends Auditable
 {
     @Id
+    @Column(nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long todoid;
 
+    @Column(nullable = false)
     private String description;
 
     private boolean completed = false;
@@ -22,11 +24,11 @@ public class Todo extends Auditable
     @JsonIgnoreProperties(value = "todos", allowSetters = true)
     private User user;
 
-    public Todo()
+    public Todos()
     {
     }
 
-    public Todo(User user, String description)
+    public Todos(User user, String description)
     {
         this.user = user;
         this.description = description;
