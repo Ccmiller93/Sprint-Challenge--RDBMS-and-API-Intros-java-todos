@@ -30,6 +30,7 @@ public class User extends Auditable
     private String username;
 
     /**
+     *
      * The password (String) for this user. Cannot be null. Never get displayed
      */
     @Column(nullable = false)
