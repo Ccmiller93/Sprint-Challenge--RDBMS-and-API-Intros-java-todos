@@ -8,7 +8,7 @@ public class UserTodosId implements Serializable {
 
     private long user;
 
-    private long todo;
+    private long todos;
 
     public UserTodosId()
     {
@@ -24,14 +24,14 @@ public class UserTodosId implements Serializable {
         this.user = user;
     }
 
-    public long getTodo()
+    public long getTodos()
     {
-        return todo;
+        return todos;
     }
 
-    public void setTodo(long todo)
+    public void setTodos(long todo)
     {
-        this.todo = todo;
+        this.todos = todo;
     }
 
     @Override
@@ -41,14 +41,14 @@ public class UserTodosId implements Serializable {
         {
             return true;
         }
-         boolean temp = (o.getClass() instanceof Class);
+//         boolean temp = (o.getClass() instanceof Class);
         if (o == null || getClass() != o.getClass())
         {
             return false;
         }
         UserTodosId that = (UserTodosId) o;
         return user == that.user &&
-                todo == that.todo;
+                todos == that.todos;
     }
 
     @Override

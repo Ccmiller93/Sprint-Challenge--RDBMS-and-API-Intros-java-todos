@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Objects;
 
 @Entity
 @Table(name = "usertodos")
@@ -21,7 +20,7 @@ public class UserTodos extends Auditable implements Serializable
     @ManyToOne
     @JoinColumn(name = "todoid")
     @JsonIgnoreProperties(value = "users", allowSetters = true)
-    private Todo todo;
+    private Todos todos;
 
     String incominguser;
 
@@ -31,20 +30,20 @@ public class UserTodos extends Auditable implements Serializable
 
     public UserTodos(
             User user,
-            Todo todo,
+            Todos todos,
             String incominguser)
     {
         this.user = user;
-        this.todo = todo;
+        this.todos = todos;
         this.incominguser = incominguser;
     }
 
     public UserTodos(
             User user,
-            Todo todo)
+            Todos todos)
     {
         this.user = user;
-        this.todo = todo;
+        this.todos = todos;
         this.incominguser = null;
     }
 
@@ -58,14 +57,14 @@ public class UserTodos extends Auditable implements Serializable
         this.user = user;
     }
 
-    public Todo getTodo()
+    public Todos getTodo()
     {
-        return todo;
+        return todos;
     }
 
-    public void setTodo(Todo todo)
+    public void setTodo(Todos todos)
     {
-        this.todo = todo;
+        this.todos = todos;
     }
 
     public String getIncominguser()
@@ -91,7 +90,7 @@ public class UserTodos extends Auditable implements Serializable
         }
         UserTodos that = (UserTodos) o;
         return ((this.user == null) ? 0 : this.user.getUserid()) == ((that.user == null) ? 0 : that.user.getUserid()) &&
-                ((this.todo == null) ? 0 : this.todo.getTodoid()) == ((that.todo == null) ? 0 : that.todo.getTodoid());
+                ((this.todos == null) ? 0 : this.todos.getTodoid()) == ((that.todos == null) ? 0 : that.todos.getTodoid());
     }
 
     @Override
