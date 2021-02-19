@@ -7,7 +7,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "todos")
-public class Todos extends Auditable
+public class Todo extends Auditable
 {
     @Id
     @Column(nullable = false)
@@ -24,11 +24,11 @@ public class Todos extends Auditable
     @JsonIgnoreProperties(value = "todos", allowSetters = true)
     private User user;
 
-    public Todos()
+    public Todo()
     {
     }
 
-    public Todos(User user, String description)
+    public Todo(User user, String description)
     {
         this.user = user;
         this.description = description;
